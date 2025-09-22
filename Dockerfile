@@ -12,12 +12,11 @@ WORKDIR /app
 # Copy only requirements first
 COPY requirements.txt .
 
-# Install deps efficiently with limited workers and pip config
+# Install deps efficiently
 ENV PIP_NO_CACHE_DIR=1
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir --compile --no-deps -r requirements.txt \
-    && pip install --no-cache-dir -r requirements.txt --no-deps \
+    && pip install --no-cache-dir -r requirements.txt \
     && rm -rf ~/.cache/pip/*
 
 COPY . .
