@@ -2,6 +2,7 @@
 streamlit
 langchain
 python-dotenv
+blinker
 
 # LLM Providers
 langchain-groq
