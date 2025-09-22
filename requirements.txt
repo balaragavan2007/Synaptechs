@@ -13,7 +13,7 @@ sentence-transformers
 
 # Document Loaders & Processing
 pypdf
-unstructured[local-inference]
+unstructured
 
 # Tools
 langchain-community
