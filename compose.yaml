@@ -1,4 +1,6 @@
-ports:
-  - target: 8501
-    published: 8501
-    protocol: tcp
+services:
+  synaptechs:
+    build: .
+    ports:
+      - target: 80
+        published: 8501
