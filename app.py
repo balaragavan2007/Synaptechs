@@ -22,7 +22,7 @@ TEMP_DOCS_PATH = "temp_docs"
 load_dotenv()
 
 # Configure the Gemini API key
-genai.configure(api_key=os.getenv("AIzaSyAZ1kfKHoVua3cXXJkrAMsIaHXtSTw_mwg"))
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # --- HELPER FUNCTIONS ---
 def process_and_store_documents(uploaded_files):

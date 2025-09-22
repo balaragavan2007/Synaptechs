@@ -1,0 +1,4 @@
+# apt-get.txt
+tesseract-ocr
+libtesseract-dev
+libleptonica-dev
