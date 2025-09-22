@@ -1,26 +1,23 @@
-# Use a pre-built image that already has many data science libraries
-FROM anask/streamlit-plus:1.0
+# Use the official lightweight Python image
+FROM python:3.11-slim
 
 # Set the working directory
 WORKDIR /app
 
-# Copy your dependency files
+# Copy all dependency files first
 COPY requirements.txt apt-get.txt ./
 
-# Install system dependencies (Tesseract)
-RUN apt-get update && xargs -a apt-get.txt apt-get install -y --no-install-recommends && rm -rf /var/lib/apt/lists/*
+# Combine all installation steps into one layer to improve caching and speed
+RUN apt-get update && \
+    xargs -a apt-get.txt apt-get install -y --no-install-recommends && \
+    pip install --no-cache-dir -r requirements.txt && \
+    rm -rf /var/lib/apt/lists/*
 
-# Install your specific Python libraries
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy your application code
+# Copy the rest of your application code
 COPY . .
 
-# Expose the port Streamlit runs on
+# Expose the correct port
 EXPOSE 8501
 
-# Set the healthcheck to ensure the app is running
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
-
-# Run the Streamlit application
-CMD ["streamlit", "run", "app.py"]
+# Command to run your Streamlit application
+CMD ["streamlit", "run", "app.py", "--server.port", "8501", "--server.enableCORS", "false"]
