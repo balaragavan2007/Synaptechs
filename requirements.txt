@@ -4,6 +4,7 @@ langchain
 python-dotenv
 blinker
 protobuf
+typing_extensions
 # LLM Providers
 langchain-groq
 langchain-google-genai
