@@ -1,6 +1,6 @@
 # 🎓 Synaptechs: Your Personalized AI Learning Assistant
 
-![Synaptechs Banner](https_link_to_a_cool_banner_image.png)  Hey there! 👋 This is a personalized learning assistant I built for the Defang.io Hackathon. It's designed to be a smart study buddy that helps you learn better and faster.
+Hey there! 👋 This is a personalized learning assistant I built for the Defang.io Hackathon. It's designed to be a smart study buddy that helps you learn better and faster.
 
 ---
 
