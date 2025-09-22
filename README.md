@@ -29,7 +29,7 @@ Want to try it out? Here's how:
 
 1.  **Clone the repo:**
     ```bash
-    git clone [https://github.com/balaragavan2007/Synaptechs.git](https://github.com/balaragavan2007/Synaptechs.git)
+    git clone https://github.com/balaragavan2007/Synaptechs.git
     ```
 2.  **Install everything:**
     ```bash
