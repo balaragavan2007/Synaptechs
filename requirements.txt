@@ -1,0 +1,20 @@
+# Core LangChain & Streamlit
+streamlit
+langchain
+python-dotenv
+
+# LLM Providers
+langchain-groq
+langchain-google-genai
+
+# Vector Database & Embeddings
+chromadb
+sentence-transformers
+
+# Document Loaders & Processing
+pypdf
+unstructured[local-inference]
+
+# Tools
+langchain-community
+tavily-python
