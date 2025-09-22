@@ -41,6 +41,10 @@ Want to try it out? Here's how:
     TAVILY_API_KEY="your-key"
     GOOGLE_API_KEY="your-key"
     ```
+you can get api keys for free! Link below:
+https://console.groq.com/keys
+https://app.tavily.com/home
+https://aistudio.google.com/app/apikey
 4.  **Launch the app:**
     ```bash
     streamlit run app.py
