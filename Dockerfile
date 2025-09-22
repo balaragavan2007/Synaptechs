@@ -10,6 +10,7 @@ WORKDIR /app
 COPY requirements.txt apt-get.txt ./
 
 # Install system dependencies from apt-get.txt
+# NEW, corrected line
 RUN apt-get update && xargs -a apt-get.txt apt-get install -y --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 # Install Python libraries from requirements.txt
