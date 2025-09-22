@@ -4,20 +4,23 @@ FROM python:3.11-slim
 # Set the working directory
 WORKDIR /app
 
-# Copy all dependency files first
-COPY requirements.txt apt-get.txt ./
+# Copy dependency files first
+COPY requirements.txt ./
 
-# Combine all installation steps into one layer to improve caching and speed
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
     libtesseract-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# Install Python dependencies (including Streamlit)
+RUN pip install --no-cache-dir -r requirements.txt streamlit
+
 # Copy the rest of your application code
 COPY . .
 
-# Expose the correct port
+# Expose Streamlit default port
 EXPOSE 8501
 
-# Command to run your Streamlit application
-CMD ["streamlit", "run", "app.py", "--server.port", "8501", "--server.enableCORS", "false"]
+# Command to run Streamlit application
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0", "--server.enableCORS=false"]
