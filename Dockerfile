@@ -8,8 +8,10 @@ WORKDIR /app
 COPY requirements.txt apt-get.txt ./
 
 # Combine all installation steps into one layer to improve caching and speed
-# NEW, corrected line
-RUN apt-get update && xargs -a apt-get.txt apt-get install -y --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    tesseract-ocr \
+    libtesseract-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy the rest of your application code
 COPY . .
