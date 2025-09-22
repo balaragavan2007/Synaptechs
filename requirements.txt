@@ -3,7 +3,7 @@ streamlit
 langchain
 python-dotenv
 blinker
-
+protobuf
 # LLM Providers
 langchain-groq
 langchain-google-genai
