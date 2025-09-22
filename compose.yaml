@@ -1,0 +1,6 @@
+services:
+  synaptechs:
+    build: .
+    ports:
+      - target: 80
+        published: 8501
