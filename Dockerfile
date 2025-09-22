@@ -1,27 +1,26 @@
-# Dockerfile
+# Use a pre-built image that already has many data science libraries
+FROM anask/streamlit-plus:1.0
 
-# Use an official Python image as a starting point
-FROM python:3.11-slim
-
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the dependency files into the container
+# Copy your dependency files
 COPY requirements.txt apt-get.txt ./
 
-# Install system dependencies from apt-get.txt
-# NEW, more reliable code
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    tesseract-ocr \
-    libtesseract-dev \
-    libleptonica-dev \
-    && rm -rf /var/lib/apt/lists/*
+# Install system dependencies (Tesseract)
+RUN apt-get update && xargs -a apt-get.txt apt-get install -y --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-# Install Python libraries from requirements.txt
+# Install your specific Python libraries
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy your application code into the container
+# Copy your application code
 COPY . .
 
-# Command to run your Streamlit application
-CMD ["streamlit", "run", "app.py", "--server.port", "80", "--server.enableCORS", "false"]
+# Expose the port Streamlit runs on
+EXPOSE 8501
+
+# Set the healthcheck to ensure the app is running
+HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
+
+# Run the Streamlit application
+CMD ["streamlit", "run", "app.py"]
