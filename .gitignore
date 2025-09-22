@@ -1,0 +1,14 @@
+# Environment variables - VERY IMPORTANT!
+.env
+
+# Local Databases and temporary files
+chroma_db/
+temp_docs/
+
+# Python specific files
+__pycache__/
+*.pyc
+
+# Virtual environment folder
+venv/
+.venv/

@@ -1,0 +1,21 @@
+# Core AI and Orchestration
+langchain
+langgraph
+langchain-groq
+langchain-community
+
+# Tool for Internet Search
+tavily-python
+
+# For RAG and image detection (Vector Database and PDF Loading)
+chromadb
+pypdf
+unstructured[local-inference]
+sentence-transformers
+google.generativeai
+
+# For the Frontend Interface
+streamlit
+
+# For loading API keys from .env file
+python-dotenv
